@@ -2,6 +2,10 @@
 # Use an NVIDIA CUDA image as the base for the application
 FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04
 
+# Use Google's public DNS servers to prevent DNS resolution issues during the build
+RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf \
+    && echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+    
 # Install system dependencies
 RUN apt-get update && apt-get install -y ffmpeg git wget python3.10 python3-pip huggingface-hub
 
