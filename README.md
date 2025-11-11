@@ -2,6 +2,29 @@
 
 A fully-featured 3D TRON-inspired light cycle game built with Three.js.
 
+## 🚀 Quick Start
+
+**Option 1: Direct Browser (Simplest)**
+1. Install dependencies: `npm install`
+2. Open `index.html` directly in your browser (Chrome, Firefox, Safari, or Edge)
+3. Click "START GAME" and play!
+
+**Option 2: Local Web Server (Recommended)**
+```bash
+# Clone and setup
+git clone https://github.com/Renevizion/Muse.git
+cd Muse
+npm install
+
+# Start a local server (choose one):
+python3 -m http.server 8000
+# OR
+npx http-server
+
+# Open in browser:
+# http://localhost:8000
+```
+
 ## Features
 
 - **Full 3D Graphics**: Rendered using Three.js with smooth animations
