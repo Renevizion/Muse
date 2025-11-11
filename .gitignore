@@ -1,0 +1,24 @@
+# Old application files
+MuseTalk/
+Dockerfile
+entrypoint.sh
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Development
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+/tmp/
+*.tmp

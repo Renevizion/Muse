@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRON Light Cycle Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #gameCanvas {
+            display: block;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+        }
+
+        #instructions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+        }
+
+        #instructions h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        #instructions.hidden {
+            display: none;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            display: none;
+        }
+
+        #gameOver h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        .button {
+            pointer-events: auto;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 10px;
+            background: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+        }
+
+        .button:hover {
+            background: #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        #minimap {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="ui">
+        <div id="score">Score: 0 | Time: 0s</div>
+        
+        <div id="instructions">
+            <h1>TRON LIGHT CYCLE</h1>
+            <p>Use ARROW KEYS or WASD to turn your light cycle</p>
+            <p>Avoid walls and light trails</p>
+            <p>Survive as long as possible!</p>
+            <br>
+            <button class="button" onclick="startGame()">START GAME</button>
+        </div>
+
+        <div id="gameOver">
+            <h2>GAME OVER</h2>
+            <p id="finalScore"></p>
+            <button class="button" onclick="restartGame()">PLAY AGAIN</button>
+        </div>
+
+        <canvas id="minimap"></canvas>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./node_modules/three/build/three.module.js",
+                "three/addons/": "./node_modules/three/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
